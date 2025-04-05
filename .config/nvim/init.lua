@@ -116,7 +116,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.colorscheme = 'swamp'
+vim.g.colorscheme = 'kanagawa'
 
 require('lazy').setup({
 	'preservim/vim-markdown',
