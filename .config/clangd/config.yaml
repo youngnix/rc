@@ -1,0 +1,23 @@
+CompileFlags:
+  Add: [
+  -Wall,
+  -Wcast-qual,
+  -Werror,
+  -Wextra,
+  -Wlogical-op,
+  -Wmissing-declarations,
+  -Wmissing-parameter-type,
+  -Wmissing-prototypes,
+  -Wold-style-declaration,
+  -Wold-style-definition,
+  -Wpointer-arith,
+  -Wredundant-decls,
+  -Wshadow,
+  -Wstrict-prototypes,
+  -Wswitch-default,
+  -Wno-switch-enum,
+  -Wunreachable-code,
+  -Wpedantic,
+  -Winline,
+  ]
+  Compiler: gcc

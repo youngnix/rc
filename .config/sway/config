@@ -1,0 +1,172 @@
+set $mod Mod4
+
+bar {
+	swaybar_command waybar
+}
+
+gaps inner 8
+
+font pango:monospace 8
+
+default_border pixel 2
+default_floating_border pixel 2
+
+client.focused #54546D #54546D #232A2E #DBBC7F
+
+exec foot --server
+set $term footclient
+set $fm pcmanfm
+set $menu fuzzel --show-actions
+
+input type:keyboard {
+	repeat_delay 0
+	repeat_rate 0
+}
+
+input type:touchpad {
+	natural_scroll enabled
+	tap enabled
+	dwt enabled
+	dwtp enabled
+}
+
+input type:pointer {
+	accel_profile flat
+	pointer_accel -0.5
+}
+
+output eDP-1 max_render_time off
+output eDP-1 allow_tearing yes
+
+for_window [class=".*"] allow_tearing yes
+
+exec mako
+exec /usr/bin/lxqt-policykit-agent
+exec flatpak run org.flameshot.Flameshot
+exec pipewire
+exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+output eDP-1 bg $HOME/Desktop/wallpaper fill
+seat seat0 xcursor_theme Breeze_Obsidian $XCURSOR_SIZE
+
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym Print exec flatpak run org.flameshot.Flameshot gui
+bindsym Shift+Print exec flatpak run org.flameshot.Flameshot full -c
+
+floating_modifier $mod
+
+bindsym $mod+Return exec $term
+bindsym $mod+M exec $fm
+bindsym $mod+o exec $menu
+bindsym $mod+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Control+h resize shrink width 5 ppt
+bindsym $mod+Control+j resize grow height 5 ppt
+bindsym $mod+Control+k resize shrink height 5 ppt
+bindsym $mod+Control+l resize grow width 5 ppt
+
+bindsym $mod+e split toggle
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+c focus child
+
+bindsym $mod+Shift+r reload
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+set $power_mode power
+set $brightness_mode brightness
+set $pretend_mode pretend
+
+bindsym $mod+p mode "$power_mode"
+bindsym $mod+b mode "$brightness_mode"
+bindsym $mod+s output eDP-1 power off; workspace "pretend";workspace_auto_back_and_forth enabled; mode "$pretend_mode"
+
+mode "$power_mode" {
+	bindsym s exec systemctl suspend; mode default
+		bindsym p exec systemctl poweroff
+		bindsym r exec systemctl reboot
+		bindsym l exit
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+bindsym XF86AudioMedia exec 'playerctl play-pause'
+bindsym XF86AudioPlay exec 'playerctl play-pause'
+bindsym XF86AudioPrev exec 'playerctl previous'
+bindsym XF86AudioNext exec 'playerctl next'
+
+mode "$brightness_mode" {
+	bindsym k exec "brightnessctl set 5%+"
+		bindsym j exec "brightnessctl set 5%-"
+		bindsym h exec "brightnessctl set 100%"
+		bindsym l exec "brightnessctl set 15%"
+		bindsym o exec "brightnessctl set 0%"
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+mode "$pretend_mode" {
+	bindsym Escape output eDP-1 power on; workspace "pretend"; workspace_auto_back_and_forth disabled; mode "default"
+}
+
+include /etc/sway/config.d/*
+
+			     bindsym $mod+n exec "$term -e nvim -c ':Neorg journal today'"
+
+			     bindsym KP_1 exec "/home/andrei/usr/bin/obs-cmd recording start"
+			     bindsym KP_2 exec "/home/andrei/usr/bin/obs-cmd recording stop"
+			     bindsym KP_3 exec "/home/andrei/usr/bin/obs-cmd recording toggle-pause"

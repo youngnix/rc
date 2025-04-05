@@ -1,0 +1,77 @@
+{
+  	"position": "bottom",
+  	"height": 20,
+  	"custom/separator": {
+    		"format":  " | ",
+    		"interval": "once",
+    		"tooltip": false
+	},
+  	"modules-left": [
+    		"niri/workspaces",
+    		"wlr/taskbar",
+  	],
+  	"modules-center": [
+    		"niri/window",
+  	],
+  	"modules-right": [
+    		"tray",
+    		"backlight",
+    		"network",
+    		"pulseaudio",
+    		"battery",
+    		"clock",
+    		"idle_inhibitor"
+  	],
+  	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": " {volume}%",
+		"interval": 5,
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"format-icons": ["", "", ""]
+  	},
+  	"wlr/taskbar": {
+  	        "format": "{icon}",
+  	        "icon-size": 14,
+  	        "icon-theme": "Papirus-Dark",
+  	        "tooltip-format": "{title}",
+  	        "on-click": "activate",
+  	        "on-click-middle": "close",
+  	},
+  	"idle_inhibitor": {
+    		"format": "{icon}",
+    		"format-icons": {
+      			"activated": "󰒳",
+      			"deactivated": "󰒲"
+    		}
+  	},
+  	"tray": {
+    		"icon-size": 20,
+    		"spacing": 10
+  	},
+  	"clock": {
+    		"format": "󰥔 {:%H:%M}",
+  	},
+  	"backlight": {
+    		"format": "{icon} {percent}%",
+    		"format-icons": ["", "", "", "", "", "", "", "", ""]
+  	},
+  	"battery": {
+    		"states": {
+      			"warning": 30,
+      			"critical": 15
+    		},
+    		"format": "{icon} {capacity}%",
+    		"format-full": "󰚥 {capacity}%",
+    		"format-charging": "󰂄 {capacity}%",
+    		"format-plugged": "󰚥 {capacity}%",
+    		"tooltip-format": "{time}",
+    		"format-icons": ["", "", "", "", ""]
+  	},
+  	"network": {
+    		"format-wifi": " {signalStrength}%",
+    		"format-ethernet": "{cidr} ",
+    		"tooltip-format": "{ifname} ",
+    		"format-linked": "{ifname} (No IP) ",
+    		"format-disconnected": " Disconnected ⚠",
+  	},
+}

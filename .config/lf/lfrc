@@ -1,0 +1,2 @@
+cmd delete %trash-put -- $fx
+map D delete
