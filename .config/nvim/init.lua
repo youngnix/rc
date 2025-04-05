@@ -414,10 +414,6 @@ require('lazy').setup({
 			vim.keymap.set('n', 'gw', '<CMD>HopWord<CR>', {remap = true, silent = true})
 		end,
 	},
-	{
-		'swamp',
-		dir = "/home/neraid/.config/nvim/swamp",
-	},
 })
 
 vim.cmd.colorscheme(vim.g.colorscheme)
