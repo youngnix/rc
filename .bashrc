@@ -46,6 +46,4 @@ CYAN1='\[\033[96m\]'
 WHITE1='\[\033[97m\]'
 RESET='\[\033[m\]'
 
-. $HOME/usr/bin/git-prompt.sh
-
-PS1="${RED1}\w${RESET}${RED1}\$(__git_ps1 ' (%s)')${RESET} ${YELLOW1}\$${RESET} "
+PS1="${RED1}\w${RESET}${RED1}${RESET} ${YELLOW1}\$${RESET} "
