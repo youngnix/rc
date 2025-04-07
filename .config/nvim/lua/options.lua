@@ -11,14 +11,14 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
-vim.opt.completeopt = 'menu,menuone,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 vim.opt.hlsearch = false
 vim.opt.linebreak = true
 
 vim.opt.guicursor = 'a:block'
 
 if vim.g.neovide then 
-	vim.opt.guifont = 'IBM Plex Mono Medm:h11.25'
+	vim.opt.guifont = 'Adwaita Mono:h11.25'
 	vim.g.neovide_floating_blur_amount_x = 0
 	vim.g.neovide_floating_blur_amount_y = 0
 end
@@ -71,7 +71,7 @@ vim.opt.spelllang = 'en_us'
 
 vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80'
 vim.opt.signcolumn = 'yes'

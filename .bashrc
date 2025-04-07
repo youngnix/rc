@@ -12,6 +12,7 @@ webscrape() {
 
 export LESSHISTFILE=""
 export PAGER=less
+export OPENER=xdg-open
 export NNN_OPTS=aAeiQ
 export VISUAL=nvim
 export TERMINAL=footclient
@@ -47,4 +48,4 @@ RESET='\[\033[m\]'
 
 . $HOME/usr/bin/git-prompt.sh
 
-PS1="${MAGENTA1}\w${RESET}${RED1}\$(__git_ps1 ' (%s)')${RESET} ${BLUE1}\$${RESET} "
+PS1="${RED1}\w${RESET}${RED1}\$(__git_ps1 ' (%s)')${RESET} ${YELLOW1}\$${RESET} "
