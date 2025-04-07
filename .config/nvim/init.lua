@@ -115,18 +115,6 @@ vim.g.colorscheme = 'gruvbox-material'
 
 require('lazy').setup({
 	{
-  		"vimwiki/vimwiki",
-  		init = function()
-    			vim.g.vimwiki_list = {
-      				{
-        				path = '~/Notes/',
-        				syntax = 'markdown',
-        				ext = '.md',
-      				}
-    			}
-  		end
-	},
-	{
 		'sainnhe/gruvbox-material',
 		config = function()
 			-- vim.g.gruvbox_material_background = 'soft'
