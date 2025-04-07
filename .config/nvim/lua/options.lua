@@ -29,6 +29,7 @@ vim.opt.showcmd = false
 vim.opt.showmode = false
 -- vim.opt.cmdheight = 1
 vim.opt.updatetime = 10
+vim.opt.conceallevel = 0
 
 -- vim.opt.statusline = "%#ModeMsg#%2{mode()} %{reg_recording() ==# '' ? '' : '@'..reg_recording()..' '}%#NonText#| %#Directory#%{fnamemodify(getcwd(), ':t')}%#Normal# %-f %0m%0r%=%l:%-2c "
 
