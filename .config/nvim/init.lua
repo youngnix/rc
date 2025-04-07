@@ -114,7 +114,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.colorscheme = 'gruvbox-material'
 
 require('lazy').setup({
-	'preservim/vim-markdown',
 	{
 		'sainnhe/gruvbox-material',
 		config = function()
