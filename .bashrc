@@ -26,6 +26,7 @@ alias ..='cd ..'
 alias tmp='cd $(mktemp -d -p ~/tmp/)'
 rc="/usr/bin/git --git-dir='$HOME/.rc/' --work-tree='$HOME'"
 
+alias rc="$rc"
 alias rc-sync="$rc pull && $rc commit -am $(date +%y%m%d%H%M) && $rc push"
 
 PATH=$HOME/usr/bin:$HOME/usr/lib:$HOME/go/bin:$PATH
