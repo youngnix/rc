@@ -1,5 +1,9 @@
 cmd delete ${{
-    trash-put -- "$fx"
+	set -f
+	for f in $fx; do
+		trash-put -- "$f"
+	done
 }}
+
 
 map D delete
