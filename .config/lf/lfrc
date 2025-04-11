@@ -1,3 +1,5 @@
-cmd delete %set -f; trash-put -- "$fx"
+cmd delete ${{
+    trash-put -- "$fx"
+}}
 
 map D delete
