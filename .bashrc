@@ -50,5 +50,3 @@ WHITE1='\[\033[97m\]'
 RESET='\[\033[m\]'
 
 PS1="${RED1}\w${RESET}${RED1}${RESET} ${YELLOW1}\$${RESET} "
-
-export PATH=$HOME/.cargo/bin:$PATH
