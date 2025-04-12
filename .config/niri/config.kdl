@@ -10,17 +10,6 @@ input {
     	keyboard {
         	repeat-delay 0
         	repeat-rate 0
-
-        	xkb {
-            		// You can set rules, model, layout, variant and options.
-            		// For more information, see xkeyboard-config(7).
-
-            		// For example:
-            		layout "br"
-            		variant "abnt2"
-            		model "abnt2"
-            		options "caps:escape_shifted_capslock"
-        	}
     	}
 
     	// Next sections include libinput settings.
