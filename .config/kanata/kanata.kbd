@@ -27,18 +27,25 @@
 ;; kanata starts up. This layer is the standard graphite layout except for the
 ;; backtick/grave key (@grl) which is an alias for a tap-hold key.
 (deflayer graphite
-  grv  1    2    3    4    5    6    7    8    9    0    [    ]    XX
-  tab  b    l    d    w    z    apo  f    o    u    j    ;    =
-  esc  @n   @r   @t   @s   @g   @y   @h   @a   @e   @i   ,    ret
-  XX   102d q    x    m    c    v    k    p    .    -    /    ro   rsft
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  esc  @m_a @m_s @m_d @m_f g    h   @m_j  @m_k @m_l @m_; ,    ret
+  XX   102d z    x    c    v    b    n    m    ,    .    /    ro   rsft
   XX        XX   @qrt        spc       XX   XX
 )
+;; (deflayer graphite
+;;   grv  1    2    3    4    5    6    7    8    9    0    [    ]    XX
+;;   tab  b    l    d    w    z    apo  f    o    u    j    ;    =
+;;   esc  @n   @r   @t   @s   @g   @y   @h   @a   @e   @i   ,    ret
+;;   XX   102d q    x    m    c    v    k    p    .    -    /    ro   rsft
+;;   XX        XX   @qrt        spc       XX   XX
+;; )
 
 (deflayer qwerty
   grv  1    2    3    4    5    6    7    8    9    0    [    ]    XX
   tab  q    w    e    r    t    y    u    i    o    p    ;    =
   esc  a    s    d    f    g    h    j    k    l    ;    ,    ret
-  lsft 102d q    x    m    c    v    k    p    .    -    /    ro   rsft
+  lsft 102d z    x    c    v    b    n    m    .    -    /    ro   rsft
   lctl      lmet @grp      spc       ralt rctl
 )
 
@@ -53,6 +60,15 @@
 ;;
 ;; Aliases are referred to by `@<alias_name>`.
 (defalias
+  m_a (tap-hold $tt $ht a lmet)
+  m_s (tap-hold $tt $ht s lalt)
+  m_d (tap-hold $tt $ht d lctl)
+  m_f (tap-hold $tt $ht f lsft)
+  m_j (tap-hold $tt $ht j rsft)
+  m_k (tap-hold $tt $ht k rctl)
+  m_l (tap-hold $tt $ht l ralt)
+  m_; (tap-hold $tt $ht ; rmet)
+
   n (tap-hold $tt $ht n lmet)
   r (tap-hold $tt $ht r lalt)
   t (tap-hold $tt $ht t lctl)
@@ -66,6 +82,14 @@
 
   qrt (layer-switch qwerty)
   grp (layer-switch graphite)
+)
+
+(defcfg
+ concurrent-tap-hold true)
+
+(defchordsv2
+ (d f) bspc 1000 all-released (graphite)
+ (j k) ret 1000 all-released (graphite)
 )
 
 (deflayer layers
