@@ -10,8 +10,7 @@
 
 "modules-left": [
   "custom/os_btn",
-  "hyprland/workspaces",
-  "wlr/taskbar"
+  "sway/workspaces",
 ],
 
 "modules-center": [
