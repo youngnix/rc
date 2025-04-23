@@ -165,8 +165,6 @@ mode "$pretend_mode" {
 	bindsym Escape output eDP-1 power on; workspace "pretend"; workspace_auto_back_and_forth disabled; mode "default"
 }
 
-include /etc/sway/config.d/*
-
 			     bindsym $mod+n exec "$term -e nvim -c ':Neorg journal today'"
 
 			     bindsym KP_1 exec "/home/andrei/usr/bin/obs-cmd recording start"
