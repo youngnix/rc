@@ -37,9 +37,6 @@ input type:pointer {
 	pointer_accel 0.5
 }
 
-output eDP-1 max_render_time off
-# output eDP-1 allow_tearing yes
-
 for_window [class=".*"] allow_tearing yes
 
 exec mako
