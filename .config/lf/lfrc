@@ -1,5 +1,5 @@
 cmd delete ${{
-	IFS=$'\n'
+	IFS=$"\n"
 	for i in "$fx"; do
 		trash-put -- "$i"
 	done
