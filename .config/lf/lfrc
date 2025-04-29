@@ -1,3 +1,8 @@
-cmd delete %set -f; IFS=$'\n' trash-put -- "$fx"
+cmd delete ${{
+	IFS=$'\n'
+	for i in "$fx"; do
+		trash-put -- "$i"
+	done
+}}
 
 map D delete
