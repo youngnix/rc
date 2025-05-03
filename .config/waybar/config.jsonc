@@ -7,9 +7,7 @@
     		"tooltip": false
 	},
   	"modules-left": [
-    		"niri/workspaces",
     		"sway/workspaces",
-    		"wlr/taskbar",
   	],
   	"modules-center": [
     		"niri/window",
