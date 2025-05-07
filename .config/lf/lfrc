@@ -1,6 +1,5 @@
 cmd delete ${{
-	IFS=$'\n'
-	trash-put -- $fx
+	IFS=$"\n" trash-put -- $fx
 }}
 
 map D delete
