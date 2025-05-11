@@ -39,7 +39,7 @@ input type:pointer {
 for_window [class=".*"] allow_tearing yes
 
 exec mako
-exec /usr/bin/lxqt-policykit-agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec flatpak run org.flameshot.Flameshot
 exec pipewire
 exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
