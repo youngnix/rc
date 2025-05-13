@@ -48,7 +48,7 @@ output * bg $HOME/Desktop/wallpaper fill
 # seat seat0 xcursor_theme Breeze_Obsidian $XCURSOR_SIZE
 
 output eDP-1 pos 0 0 
-output HDMI-A-1 pos 1920 0 mode 1920x1080@60.000Hz
+output HDMI-A-1 disable
 
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
