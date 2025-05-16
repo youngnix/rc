@@ -135,13 +135,13 @@ bindsym $mod+b mode "$brightness_mode"
 bindsym $mod+s output eDP-1 power off; workspace "pretend";workspace_auto_back_and_forth enabled; mode "$pretend_mode"
 
 mode "$power_mode" {
-	bindsym s exec systemctl suspend; mode default
-		bindsym p exec systemctl poweroff
-		bindsym r exec systemctl reboot
-		bindsym l exit
+	bindsym s exec loginctl suspend; mode default
+	bindsym p exec loginctl poweroff
+	bindsym r exec loginctl reboot
+	bindsym l exit
 
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 bindsym XF86AudioMedia exec 'playerctl play-pause'
