@@ -1,5 +1,6 @@
 cmd delete %{{
-	IFS=$"\n" for i in "$fx" do
+	IFS=$"\n" for i in "$fx"
+	do
 		trash-put -- "$i"
 	done
 }}
