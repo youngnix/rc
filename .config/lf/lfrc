@@ -1,8 +1,5 @@
 cmd delete %{{
-	IFS=$"\n" for i in "$fx"
-	do
-		trash-put -- "$i"
-	done
+	IFS=$"\n" for i in "$fx" trash-put -- "$i"
 }}
 
 map D delete
