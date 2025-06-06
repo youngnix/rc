@@ -1,4 +1,4 @@
-cmd delete %{{
+cmd delete ${{
 	IFS=$"\n" for i in "$fx" trash-put -- "$i"
 }}
 
