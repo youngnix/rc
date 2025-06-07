@@ -42,7 +42,7 @@ exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec flameshot
 exec pipewire
-# exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 output * bg $HOME/Desktop/wallpaper fill
 seat seat0 xcursor_theme Bibata-Modern-Ice 24
