@@ -1,5 +1,8 @@
 cmd delete ${{
-	IFS=$"\n" for i in "$fx" trash-put -- "$i"
+    set -f
+    IFS=$'\n'
+    printf '%s\n' "$fx" | xargs -0 -I{} trash-put "{}"
 }}
+
 
 map D delete
