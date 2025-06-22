@@ -111,9 +111,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.colorscheme = 'gruvbox-material'
+vim.g.colorscheme = 'kanagawa'
 
 require('lazy').setup({
+	{
+		'rebelot/kanagawa.nvim',
+	},
 	{
 		'sainnhe/gruvbox-material',
 		config = function()
@@ -125,7 +128,10 @@ require('lazy').setup({
 		end
 	},
 	{
-		"mfussenegger/nvim-jdtls",
+		"nvim-telescope/telescope.nvim",
+		config = function ()
+			vim.keymap.set("n", "<leader>o", require("telescope.builtin").find_files)
+		end
 	},
 	{
 		'ibhagwan/fzf-lua',
@@ -142,8 +148,8 @@ require('lazy').setup({
 				end
 			end
 
-			vim.keymap.set("n", "<leader>o", function() fzf.files{} end)
 			vim.keymap.set("n", "<leader>i", function() fzf.lsp_live_workspace_symbols{} end)
+
 			vim.keymap.set("n", "<leader>l", function() fzf.live_grep{
 				winopts = {
 					preview = {
@@ -280,15 +286,16 @@ require('lazy').setup({
 			local lspconfig = require('lspconfig')
 			local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-			local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "" }
-			for type, icon in pairs(signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-			end
-
 			vim.diagnostic.config({
 				virtual_text = true,
-				signs = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = '󰅚',
+						[vim.diagnostic.severity.WARN] = '󰀪',
+						[vim.diagnostic.severity.HINT] = '󰌶',
+						[vim.diagnostic.severity.INFO] = '',
+					}
+				},
 				underline = true,
 				update_in_insert = true,
 				severity_sort = true,
@@ -347,15 +354,13 @@ require('lazy').setup({
 						root_dir = vim.loop.cwd,
 					})
 				end,
-				["jdtls"] = function(server_name)
-					vim.lsp.config(server_name, {
-    						filetypes = { "java" },
-    						capabilities = capabilities,
-    						on_attach = on_attach,
-    						root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-					})
-				end,
 			}
+
+			lspconfig.gdscript.setup({
+				cmd = {
+					"nc", "127.0.0.1", "6005",
+				},
+			})
 
 			require('mason').setup()
 			require('mason-lspconfig').setup({ handlers = handlers })
@@ -368,6 +373,9 @@ require('lazy').setup({
 
 			vim.keymap.set('n', 'gw', '<CMD>HopWord<CR>', {remap = true, silent = true})
 		end,
+	},
+	{
+		"habamax/vim-godot",
 	},
 })
 

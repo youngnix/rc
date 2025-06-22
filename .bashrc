@@ -26,6 +26,8 @@ alias ..='cd ..'
 alias tmp='cd $(mktemp -d -p ~/tmp/)'
 rc="/usr/bin/git --git-dir='$HOME/.rc/' --work-tree='$HOME'"
 
+alias nvim="nvim --listen /tmp/nvim.sock"
+
 alias rc="$rc"
 alias rc-sync="$rc pull && $rc commit -am $(date +%y%m%d%H%M) && $rc push"
 
