@@ -4,8 +4,6 @@ bar {
 	swaybar_command waybar
 }
 
-gaps inner 8
-
 font pango:monospace 8
 
 default_border pixel 2
