@@ -5,7 +5,7 @@
 
 @define-color bg-base             #1b1b1b;
 @define-color bg-surface          #282828;
-@define-color bg-hover            #32302f;
+@define-color bg-hover            #484848;
 @define-color bg-highlight        #45403d;
 @define-color bg-subtle           #5a524c;
 
@@ -54,8 +54,8 @@
 	color: @text-muted;
 }
 
-#workspaces button.focus,
-#workspaces button.hover {
+#workspaces button.focused,
+#workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 	background: @bg-hover;

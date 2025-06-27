@@ -1,3 +1,7 @@
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 set $mod Mod4
 
 bar {
@@ -36,22 +40,28 @@ input type:pointer {
 
 for_window [class=".*"] allow_tearing yes
 
-exec mako
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec flameshot
-exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
 output * bg $HOME/Desktop/wallpaper fill
 seat seat0 xcursor_theme Bibata-Modern-Ice 24
 
 output eDP-1 pos 0 0 
-output HDMI-A-1 disable
+output HDMI-A-1 res 1920x1080@60Hz
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
 
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-bindsym Print exec flameshot gui
+bindsym Print exec 'grim -g "$(slurp)" - | swappy -f -'
 bindsym Shift+Print exec flameshot full -c
 
 floating_modifier $mod
@@ -153,21 +163,25 @@ bindsym XF86AudioNext exec 'playerctl next'
 
 mode "$brightness_mode" {
 	bindsym k exec "brightnessctl set 5%+"
-		bindsym j exec "brightnessctl set 5%-"
-		bindsym h exec "brightnessctl set 100%"
-		bindsym l exec "brightnessctl set 15%"
-		bindsym o exec "brightnessctl set 0%"
+	bindsym j exec "brightnessctl set 5%-"
+	bindsym h exec "brightnessctl set 100%"
+	bindsym l exec "brightnessctl set 15%"
+	bindsym o exec "brightnessctl set 0%"
 
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 mode "$pretend_mode" {
 	bindsym Escape output eDP-1 power on; workspace "pretend"; workspace_auto_back_and_forth disabled; mode "default"
 }
 
-			     bindsym $mod+n exec "$term -e nvim -c ':Neorg journal today'"
+bindsym $mod+n exec "$term -e nvim -c ':Neorg journal today'"
 
-			     bindsym KP_1 exec "/home/andrei/usr/bin/obs-cmd recording start"
-			     bindsym KP_2 exec "/home/andrei/usr/bin/obs-cmd recording stop"
-			     bindsym KP_3 exec "/home/andrei/usr/bin/obs-cmd recording toggle-pause"
+bindsym KP_1 exec "/home/andrei/usr/bin/obs-cmd recording start"
+bindsym KP_2 exec "/home/andrei/usr/bin/obs-cmd recording stop"
+bindsym KP_3 exec "/home/andrei/usr/bin/obs-cmd recording toggle-pause"
+
+exec mako
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec flameshot
