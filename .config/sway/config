@@ -15,8 +15,7 @@ default_floating_border pixel 2
 
 client.focused #54546D #54546D #232A2E #DBBC7F
 
-exec foot --server
-set $term footclient
+set $term foot
 set $fm pcmanfm
 set $menu fuzzel --show-actions
 
@@ -144,7 +143,7 @@ set $pretend_mode pretend
 
 bindsym $mod+p mode "$power_mode"
 bindsym $mod+b mode "$brightness_mode"
-bindsym $mod+s output eDP-1 power off; workspace "pretend";workspace_auto_back_and_forth enabled; mode "$pretend_mode"
+bindsym $mod+s output * power off; workspace "pretend"; workspace_auto_back_and_forth enabled; mode "$pretend_mode"
 
 mode "$power_mode" {
 	bindsym s exec systemctl suspend; mode default
@@ -173,15 +172,8 @@ mode "$brightness_mode" {
 }
 
 mode "$pretend_mode" {
-	bindsym Escape output eDP-1 power on; workspace "pretend"; workspace_auto_back_and_forth disabled; mode "default"
+	bindsym Escape output * power on; workspace "pretend"; workspace_auto_back_and_forth disabled; mode "default"
 }
-
-bindsym $mod+n exec "$term -e nvim -c ':Neorg journal today'"
-
-bindsym KP_1 exec "/home/andrei/usr/bin/obs-cmd recording start"
-bindsym KP_2 exec "/home/andrei/usr/bin/obs-cmd recording stop"
-bindsym KP_3 exec "/home/andrei/usr/bin/obs-cmd recording toggle-pause"
 
 exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec flameshot
