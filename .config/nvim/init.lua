@@ -111,7 +111,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.colorscheme = 'kanagawa'
+vim.g.colorscheme = 'default'
 
 require('lazy').setup({
 	{
