@@ -17,7 +17,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
 	export CLUTTER_BACKEND=wayland
 	export ELECTRON_OZONE_PLATFORM_HINT=wayland
 	export GTK_THEME=Orchis-Dark-Compact
