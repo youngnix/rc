@@ -16,7 +16,7 @@ default_floating_border pixel 2
 client.focused #54546D #54546D #232A2E #DBBC7F
 
 set $term foot
-set $fm pcmanfm
+set $fm thunar
 set $menu fuzzel --show-actions
 
 input type:keyboard {
