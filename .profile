@@ -7,6 +7,10 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
+
+    if [ -f "/etc/bash_completion" ]; then
+	. "/etc/bash_completion" 
+    fi
 fi
 
 if [ -d "$HOME/bin" ] ; then
