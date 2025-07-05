@@ -7,11 +7,10 @@
     		"tooltip": false
 	},
   	"modules-left": [
-    		"sway/workspaces",
-    		"sway/mode",
+    		"hyprland/workspaces",
   	],
   	"modules-center": [
-    		"niri/window",
+    		"hyprland/window",
   	],
   	"modules-right": [
     		"tray",

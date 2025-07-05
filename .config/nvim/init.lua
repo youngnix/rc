@@ -128,12 +128,6 @@ require('lazy').setup({
 		end
 	},
 	{
-		"nvim-telescope/telescope.nvim",
-		config = function ()
-			vim.keymap.set("n", "<leader>o", require("telescope.builtin").find_files)
-		end
-	},
-	{
 		'ibhagwan/fzf-lua',
 		config = function()
 			local fzf = require("fzf-lua")
@@ -147,6 +141,11 @@ require('lazy').setup({
 					vim.fn.chdir(s[1])
 				end
 			end
+
+			vim.keymap.set("n", "<leader>o", function() fzf.files{
+				hidden = true,
+				no_ignore = false,
+			} end)
 
 			vim.keymap.set("n", "<leader>i", function() fzf.lsp_live_workspace_symbols{} end)
 

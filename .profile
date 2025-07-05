@@ -21,7 +21,15 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
+case "$(uname -n)" in
+zeus)
+		TTY=/dev/tty1
+	;;
+*)
+		TTY=/dev/tty3
+	;;
+esac
+if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = $TTY ]; then
 	export CLUTTER_BACKEND=wayland
 	export ELECTRON_OZONE_PLATFORM_HINT=wayland
 	export GTK_THEME=Orchis-Dark-Compact
@@ -31,10 +39,8 @@ if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = "/dev/tty3" ]; then
 	export SDL_VIDEODRIVER=wayland,x11
 	export XCURSOR_SIZE=24
 	export XCURSOR_THEME=Bibata-Modern-Ice
-	export XDG_CURRENT_DESKTOP=sway
-	export XDG_SESSION_DESKTOP=sway
 	export XDG_SESSION_TYPE=wayland
 	export _JAVA_AWT_WM_NONREPARENTING=1
 
-	exec dbus-run-session sway
+	exec uwsm start hyprland
 fi
