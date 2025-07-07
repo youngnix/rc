@@ -111,9 +111,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.colorscheme = 'default'
+vim.g.colorscheme = 'flexoki'
 
 require('lazy').setup({
+	{
+		"kepano/flexoki-neovim",
+	},
 	{
 		'rebelot/kanagawa.nvim',
 	},

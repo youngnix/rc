@@ -1,6 +1,7 @@
 {
   "CamelCaseMotion": { "branch": "master", "commit": "de439d7c06cffd0839a29045a103fe4b44b15cdc" },
   "blink.cmp": { "branch": "main", "commit": "9bcb14b43852a6f2bfd5ac9ef29cb5cf09b1b39b" },
+  "flexoki-neovim": { "branch": "main", "commit": "8899dab435d8c82329397ca224e63b129a21e1e6" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "fzf-lua": { "branch": "main", "commit": "9be1552e7de8d72fa280b87ede3642e8bfb4c998" },
   "gruvbox-material": { "branch": "master", "commit": "66cfeb7050e081a746a62dd0400446433e802368" },
@@ -12,8 +13,6 @@
   "mini.splitjoin": { "branch": "main", "commit": "ebde0e2a33ec983ade3b2bb3c495b3751b458e4c" },
   "nvim-lspconfig": { "branch": "master", "commit": "bb3fb99cf14daa33014331ac6eb4b5de9180f775" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
-  "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
-  "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "undotree": { "branch": "master", "commit": "15d91b0afe04ea9ba5cd53e30190d1602af9a925" },
   "vim-godot": { "branch": "master", "commit": "1c8385789f7f4558bdbbf6e75033b34b4727944b" }
 }
