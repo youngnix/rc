@@ -4,31 +4,34 @@ shopt -s huponexit
 set -m
 
 if [ -n "$BASH_VERSION" ]; then
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+    	if [ -f "$HOME/.bashrc" ]; then
+		. "$HOME/.bashrc"
+    	fi
 
-    if [ -f "/etc/bash_completion" ]; then
-	. "/etc/bash_completion" 
-    fi
+    	if [ -f "/etc/bash_completion" ]; then
+		. "/etc/bash_completion" 
+    	fi
 fi
 
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    	PATH="$HOME/bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    	PATH="$HOME/.local/bin:$PATH"
 fi
 
 case "$(uname -n)" in
-zeus)
+	zeus)
 		TTY=/dev/tty1
-	;;
-*)
+		WM_CMD=uwsm start hyprland
+		;;
+	*)
 		TTY=/dev/tty3
-	;;
+		WM_CMD=hyprland
+		;;
 esac
+
 if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = $TTY ]; then
 	export CLUTTER_BACKEND=wayland
 	export ELECTRON_OZONE_PLATFORM_HINT=wayland
