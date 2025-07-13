@@ -45,5 +45,5 @@ if [ -z	$WAYLAND_DISPLAY ] && [ "$(tty)" = $TTY ]; then
 	export XDG_SESSION_TYPE=wayland
 	export _JAVA_AWT_WM_NONREPARENTING=1
 
-	exec uwsm start hyprland
+	exec $WM_CMD
 fi
