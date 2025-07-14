@@ -24,7 +24,7 @@ fi
 case "$(uname -n)" in
 	zeus)
 		TTY=/dev/tty1
-		WM_CMD=uwsm start hyprland
+		WM_CMD="uwsm start hyprland"
 		;;
 	*)
 		TTY=/dev/tty3
